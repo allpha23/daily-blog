@@ -1,0 +1,42 @@
+.blog-item
+    height: 350px
+    width: 350px
+    display: grid
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr 3fr 1fr
+    border-radius: 5px
+    box-sizing: border-box
+    margin: 19px
+    padding: 15px
+    cursor: pointer
+    box-shadow: 11px 11px 5px 0px rgba(0, 0, 0, 0.25)
+    transition: 0.3s ease-in-out
+
+    &:hover
+        transform: scale(1.02)
+
+    h4
+        color: #27242C
+        margin: 10px 0
+
+        &::first-letter
+            text-transform: uppercase
+
+    p
+        color: #8A8A8E
+
+.post-owner
+    display: flex
+    align-items: center
+    justify-self: start
+    margin: 15px
+
+    p
+        color: #27242C
+        font-weight: bold
+
+    img
+        height: 40px
+        width: 40px
+        border-radius: 50%
+        margin-right: 20px
