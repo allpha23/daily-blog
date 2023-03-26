@@ -1,0 +1,119 @@
+.comments
+    width: 450px
+    height: 460px
+    border-radius: 15px
+    background-color: white
+    position: relative
+    padding: 0 5px 20px 20px
+    overflow: hidden
+
+    h4
+        font-weight: 700
+        letter-spacing: 0.8px
+
+    h5
+        margin-bottom: 10px
+
+    span
+        color: #8A8A8E
+        font-weight: 400
+
+.comments-header
+    height: 50px
+    width: 400px
+    display: flex
+    align-items: center
+    position: fixed
+    background-color: #fff
+
+.btn-popup
+    height: 30px
+    width: 30px
+    position: absolute
+    border: 0
+    border-radius: 50%
+    background-color: transparent
+    font-size: 18px
+    right: 0
+    cursor: pointer
+    transition: 0.3s ease-in-out
+
+    &:hover
+        background-color: #8A8A8E
+
+.comments-itens
+    height: 100%
+    width: 100%
+    padding-top: 50px
+    padding-right: 50px
+    overflow-x: hidden
+
+    &::-webkit-scrollbar
+        width: 10px
+        border: 8
+
+    &::-webkit-scrollbar-track-piece:start
+        background: transparent
+        margin-top: 70px
+
+    &::-webkit-scrollbar-thumb
+        background-color: #27242C
+        border-radius: 10px
+
+    img
+        height: 40px
+        width: 40px
+        border-radius: 50%
+        margin-right: 10px
+
+.input-field
+    display: flex
+
+.input
+    width: 400px
+    display: flex
+    flex-direction: column
+
+    input
+        border: unset
+        margin-bottom: 5px
+        outline: none
+        font-size: 14px
+
+        &:focus + span::after
+            width: 100%
+
+    span
+        height: 2px
+        width: 100%
+        background: #cfcfcf
+        margin-bottom: 8px
+        transition: .3s ease-in-out
+
+        &::after
+            content: ""
+            display: block
+            height: 2px
+            width: 0
+            margin-bottom: 8px
+            background: black
+            transition: .3s ease-in-out
+
+    button
+        height: 35px
+        width: 93px
+        align-self: flex-end
+        background-color: #0556BF
+        border: unset
+        border-radius: 15px
+        color: white
+        cursor: pointer
+        font-weight: bold
+        transition: 0.3s ease-in-out
+
+        &:hover
+            filter: brightness(0.8)
+
+.comment
+    display: flex
+    margin: 15px 0
