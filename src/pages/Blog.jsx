@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import BlogItens from '../components/BlogItem';
+import BlogItem from '../components/BlogItem';
 import Header from '../components/Header';
 import Teste from '../components/Comments';
 import { requestData } from '../services/requests';
@@ -57,7 +57,7 @@ export default function Blog() {
           entretido por meio de atualizações diárias
         </p>
         <div className="blog-wrap">
-          {blogs.map((blog) => (<BlogItens blog={blog} users={users} commentsOn={commentsOn} />))}
+          {blogs.map((blog) => (<div key={blog.id}><BlogItem blog={blog} users={users} commentsOn={commentsOn} /></div>))}
         </div>
       </div>
       {popup && (<div className="comments-container"><Teste comments={comments} commentsOff={commentsOff} /></div>)}
