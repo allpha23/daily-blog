@@ -12,7 +12,7 @@ export default function Header() {
       </div>
       <ul>
         <li><a className="navbar" href="#">Login</a></li>
-        <li><a className="navbar" href="#">Registro</a></li>
+        <li><a className="navbar" href="#">Registrar</a></li>
       </ul>
     </nav>
   );
