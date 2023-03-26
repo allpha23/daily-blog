@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import BlogItens from '../components/BlogItem';
 import Header from '../components/Header';
 import Teste from '../components/Comments';
 import { requestData } from '../services/requests';
 
 import '../styles/pages/Blog.sass';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -14,15 +16,15 @@ export default function Blog() {
 
   const getPosts = (endPoint) => requestData(endPoint)
     .then((response) => setBlogs(response))
-    .catch((error) => console.log(error));
+    .catch((error) => toast.error(error));
 
   const getUsers = (endPoint) => requestData(endPoint)
     .then((response) => setUsers(response))
-    .catch((error) => console.log(error));
+    .catch((error) => toast.error(error));
 
   const getComments = (endPoint) => requestData(endPoint)
     .then((response) => setComments(response))
-    .catch((error) => console.log(error));
+    .catch((error) => toast.error(error));
 
   useEffect(() => {
     const apiPosts = '/posts';
@@ -59,6 +61,18 @@ export default function Blog() {
         </div>
       </div>
       {popup && (<div className="comments-container"><Teste comments={comments} commentsOff={commentsOff} /></div>)}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </>
   );
 }
