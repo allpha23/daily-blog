@@ -4,14 +4,14 @@ import imgDefault from '../assets/unnamed.jpg';
 
 import '../styles/components/BlogItem.sass';
 
-export default function BlogItens({ blog, users, commentsOn }) {
+export default function BlogItem({ blog, users, commentsOn }) {
   const findUser = (userId) => {
     const user = users.find((e) => userId === e.id);
     return user.username;
   };
 
   return (
-    <div key={blog.id} className="blog-item" onClick={() => commentsOn(blog.id, blog.userId)}>
+    <div className="blog-item" onClick={() => commentsOn(blog.id)}>
       <h4>{blog.title}</h4>
       <p>{blog.body}</p>
       <div className="post-owner">
@@ -25,7 +25,7 @@ export default function BlogItens({ blog, users, commentsOn }) {
   );
 }
 
-BlogItens.propTypes = {
+BlogItem.propTypes = {
   blog: PropTypes.shape({
     body: PropTypes.string,
     id: PropTypes.number,
