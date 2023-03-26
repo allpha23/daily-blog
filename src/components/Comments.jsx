@@ -38,9 +38,9 @@ export default function Teste({ comments, commentsOff }) {
 }
 
 Teste.propTypes = {
-  comments: PropTypes.shape({
+  comments: PropTypes.arrayOf(PropTypes.shape({
     length: PropTypes.number,
     map: PropTypes.func,
-  }).isRequired,
+  }).isRequired).isRequired,
   commentsOff: PropTypes.func.isRequired,
 };
