@@ -32,8 +32,10 @@ BlogItens.propTypes = {
     title: PropTypes.string,
     userId: PropTypes.number,
   }).isRequired,
-  users: PropTypes.shape({
-    find: PropTypes.func,
-  }).isRequired,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      find: PropTypes.func,
+    }).isRequired,
+  ).isRequired,
   commentsOn: PropTypes.func.isRequired,
 };
