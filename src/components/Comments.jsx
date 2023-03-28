@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import imgDefault from '../assets/unnamed.jpg';
 import '../styles/components/Comments.sass';
 
-export default function Teste({ comments, commentsOff }) {
+export default function Comments({ comments, commentsOff }) {
   return (
     <div className="comments">
       <div className="comments-header">
@@ -37,7 +37,7 @@ export default function Teste({ comments, commentsOff }) {
   );
 }
 
-Teste.propTypes = {
+Comments.propTypes = {
   comments: PropTypes.arrayOf(PropTypes.shape({
     length: PropTypes.number,
     map: PropTypes.func,

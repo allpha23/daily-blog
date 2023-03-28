@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import BlogItem from '../components/BlogItem';
 import Header from '../components/Header';
-import Teste from '../components/Comments';
+import Comments from '../components/Comments';
 import { requestData } from '../services/requests';
 
 import '../styles/pages/Blog.sass';
@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
   const [users, setUsers] = useState([]);
+  const [disable, setDisable] = useState(true)
+  const [next, setNext] = useState(0);
   const [comments, setComments] = useState([]);
   const [popup, setPopup] = useState(false);
 
@@ -27,12 +29,13 @@ export default function Blog() {
     .catch((error) => toast.error(error));
 
   useEffect(() => {
-    const apiPosts = '/posts';
+    const page = next * 20
+    const apiPosts = `/posts?_start=${page}&_limit=20`;
     const apiUsers = '/users';
 
     getPosts(apiPosts);
     getUsers(apiUsers);
-  }, []);
+  }, [next]);
 
   const commentsOn = (id) => {
     const apiComents = `/posts/${id}/comments`;
@@ -47,6 +50,16 @@ export default function Blog() {
     document.body.style.overflow = 'auto';
   };
 
+  const nextPage = () => {
+    setNext(next + 1)
+    setDisable(false)
+  }
+
+  const previousPage = () => {
+    setNext(next - 1)
+    if (next == 1) setDisable(true)
+  }
+
   return (
     <>
       <Header />
@@ -59,8 +72,13 @@ export default function Blog() {
         <div className="blog-wrap">
           {blogs.map((blog) => (<div key={blog.id}><BlogItem blog={blog} users={users} commentsOn={commentsOn} /></div>))}
         </div>
+        <div className='nav-page'>
+          <button type='button' disabled={disable} onClick={() => previousPage()}>Anterior</button>
+          <span>{next + 1}</span>
+          <button type='button' onClick={() => nextPage()}>Proxima</button>
+        </div>
       </div>
-      {popup && (<div className="comments-container"><Teste comments={comments} commentsOff={commentsOff} /></div>)}
+      {popup && (<div className="comments-container"><Comments comments={comments} commentsOff={commentsOff} /></div>)}
       <ToastContainer
         position="top-right"
         autoClose={5000}
