@@ -75,7 +75,7 @@ export default function Blog() {
         <div className='nav-page'>
           <button type='button' disabled={disable} onClick={() => previousPage()}>Anterior</button>
           <span>{next + 1}</span>
-          <button type='button' onClick={() => nextPage()}>Proxima</button>
+          <button type='button' onClick={() => nextPage()}>Próxima</button>
         </div>
       </div>
       {popup && (<div className="comments-container"><Comments comments={comments} commentsOff={commentsOff} /></div>)}
