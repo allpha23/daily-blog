@@ -6,7 +6,7 @@ https://allpha23.github.io/daily-blog/
 
 O site consome api's para apresentar blogs e exibir os comentários ao clicar.
 <br>
-Foi construído em react e foi utilizado axios para o consumo das api's e sass na estilização.
+Foi construído em react utilizando axios para o consumo das api's e sass para estilização.
 <br>
 Ele também conta com testes usando react testing library
 
